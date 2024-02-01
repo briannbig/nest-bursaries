@@ -1,10 +1,6 @@
-interface School {
-    id: number,
-    name: string,
-    county: string,
-}
+import { School } from "src/schools/schools.interface";
 
-interface Student {
+export interface Student {
     id: number,
     admissionNumber: string,
     firstName: string,
