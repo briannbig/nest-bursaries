@@ -1,8 +1,10 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import { StudentsService } from './students.service';
 import { Student } from './students.interface';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('students')
+@ApiTags('students')
 export class StudentsController {
 
     constructor(private readonly studentService: StudentsService) { }
@@ -18,8 +20,8 @@ export class StudentsController {
         return this.studentService.getStudentById(id);
     }
 
-    @Get('/schools/:admNumber')
-    getSchoolByAdmissionNumber(@Param('admNumber') admNumber: string): Student | undefined {
+    @Get('/:admNumber')
+    getStudentByAdmissionNumber(@Param('admNumber') admNumber: string): Student | undefined {
         return this.studentService.getStudentByAdmissionNumber(admNumber)
     }
 

@@ -2,8 +2,10 @@ import { Controller, Get, Param } from '@nestjs/common';
 import { SchoolsService } from './schools.service';
 import { School } from './schools.interface';
 import { Student } from 'src/students/students.interface';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('schools')
+@ApiTags('schools')
 export class SchoolsController {
 
     constructor(private readonly schoolsService: SchoolsService) {}

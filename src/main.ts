@@ -9,7 +9,6 @@ async function bootstrap() {
   .setTitle('Nest bursaries')
   .setDescription('Bursaries backend with nest Js')
   .setVersion('0.0.1')
-  .addTag('bursaries')
   .build();
 
   const document = SwaggerModule.createDocument(app, config);
