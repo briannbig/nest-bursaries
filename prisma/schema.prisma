@@ -9,3 +9,19 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
+model School {
+  id       Int       @id @default(autoincrement())
+  name     String    @unique
+  county   String?
+  students Student[]
+}
+
+model Student {
+  id              Int     @id @default(autoincrement())
+  admissionNumber String
+  firstName       String
+  surname         String?
+  school          School  @relation(fields: [schoolId], references: [id])
+  schoolId        Int
+}
